@@ -43,6 +43,10 @@ public class UserVo {
 		this.createDate = createDate;
 	}
 	
+	public boolean isEnableEmail() {
+		return true;
+	}
+	
 	@Override
 	public String toString() {
 		return "UserVo [userId=" + userId + ", password=" + password + ", email=" + email + ", auth=" + auth

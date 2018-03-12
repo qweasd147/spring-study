@@ -13,6 +13,6 @@
 <h1>
 	Main
 </h1>
-<a href="/binder">move form</a>
+<a href="/binder/form">move form</a>
 </body>
 </html>

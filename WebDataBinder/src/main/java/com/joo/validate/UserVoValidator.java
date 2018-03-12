@@ -23,11 +23,16 @@ public class UserVoValidator implements Validator{
 		
 		
 		
-		//그냥 널 체크 할 수도 있지만 동적으로 다른 방식으로 보여주는거
 		UserVo userVo = (UserVo)target;
 		
-		if (userVo.getCreateDate().toString().equals("")) {
+		if (userVo.getCreateDate() == null || userVo.getCreateDate().toString().equals("")) {
+			//date validate
 			errors.rejectValue("createDate", "badCreateDate");
+		}
+		
+		if (!userVo.isEnableEmail()) {
+			//email validate
+			errors.rejectValue("email", "badEmail");
 		}
 	}
 
