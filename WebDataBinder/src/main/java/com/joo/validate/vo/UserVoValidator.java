@@ -1,4 +1,4 @@
-package com.joo.validate;
+package com.joo.validate.vo;
 
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;

@@ -1,4 +1,4 @@
-package com.joo.validate;
+package com.joo.validate.vo;
 
 import java.util.Date;
 import java.util.List;

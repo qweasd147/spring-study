@@ -1,4 +1,4 @@
-package com.joo.validate;
+package com.joo.validate.vo;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -14,26 +14,27 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.Errors;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping(value="/binder")
-public class BinderController {
+public class VoBinderController {
 	
-	private static final Logger logger = LoggerFactory.getLogger(BinderController.class);
+	private static final Logger logger = LoggerFactory.getLogger(VoBinderController.class);
 	
 	@RequestMapping(value="/form")
 	public String baseDir() {
 		return "baseForm";
 	}
 	
-	@RequestMapping(value="/submitData")
-	public String submitData(HttpServletRequest req, @Valid UserVo userVo
+	@RequestMapping(value="/voSubmitData")
+	@ResponseBody
+	public void submitData(HttpServletRequest req, @Valid UserVo userVo
 			, BindingResult br) {
 		
 		//에러난 부분 확인할려고 쓰는거
@@ -74,8 +75,6 @@ public class BinderController {
 		}
 		
 		logger.info("validate success");
-		
-		return "redirect:/";
 	}
 	
 	@InitBinder
